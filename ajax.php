@@ -25,8 +25,8 @@ if(isset($_POST['action']) && $_POST['action']=='email_check'){
 
     $emailval ="SELECT * FROM user WHERE email = '" . $email . "'";
 		$selectresult = mysqli_query($mycon, $emailval);
-		$email_suffix = explode("@", $email);
-        if (mysqli_num_rows($selectresult) > 0) {
+		//$email_suffix = explode("@", $email);
+        if (mysqli_num_rows($selectresult) > 1) {
 			echo  1;
 
 		}else{

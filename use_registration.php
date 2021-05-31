@@ -103,7 +103,8 @@ include "dbconnections.php";
 							$dep = mysqli_query($mycon, "select * from department");
 							foreach ($dep as $key => $value) {
 							?><option value="<?= $value['dep_id'] ?>"><?= $value['dep_name'] ?></option><?php
-																									} ?>
+				}
+				?>
 						</select>
 						<script>
 							function depchange(depid) {
@@ -153,8 +154,8 @@ include "dbconnections.php";
 
 			<p><input type="Password" placeholder="Confirm Password" required name="compassword_inp"></p>
 
-			<!-- <p> <input type="submit" name="submit1" value="Save"></p> -->
-			<button type="button" name="submit1" onclick="formsubmit()">Save</button>
+			<p> <input type="submit" name="submit1" value="Save"></p>
+			<!-- <button type="button" name="submit1" onclick="formsubmit()">Save</button> -->
 			
 			<center>
 				Or<br>
@@ -167,9 +168,22 @@ include "dbconnections.php";
 	</div>
 
 </body>
-
+<!-- 
 <script>
 
+
+function emailchange(e) {
+
+	$.post("ajax.php", {
+		action: "email_check",
+		email_id: e
+		})
+		.done(function(data) {
+		// console.log(data);
+		alert("Data Loaded: " + data);
+		//$('#designation_input').html(data);
+	});
+}
 function formsubmit(){
 	var p = document.getElementById("password_inpaa").value;
 	var es = document.getElementById("email_inp").value;
@@ -186,18 +200,6 @@ function formsubmit(){
 	}
 }
 
-function emailchange(e) {
-
-	$.post("ajax.php", {
-		action: "email_check",
-		email_id: e
-		})
-		.done(function(data) {
-		// console.log(data);
-		alert("Data Loaded: " + data);
-		//$('#designation_input').html(data);
-	});
-}
-</script>
+</script> -->
 
 </html> 
